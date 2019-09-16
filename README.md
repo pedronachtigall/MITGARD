@@ -22,6 +22,7 @@ Decompress the tar.gz file:
 # Requirements
 
 - [Python](https://www.python.org/)
+- [Samtools](http://quinlanlab.org/tutorials/samtools/samtools.html)
 - [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 - [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
 - [SPAdes](http://cab.spbu.ru/software/spades/)
