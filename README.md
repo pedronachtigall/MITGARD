@@ -21,18 +21,23 @@ Decompress the tar.gz file:
 
 # Requirements
 
-- [Python](https://www.python.org/)
-- [Samtools](http://quinlanlab.org/tutorials/samtools/samtools.html)
-- [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
-- [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
-- [SPAdes](http://cab.spbu.ru/software/spades/)
-- [MitoZ](https://github.com/linzhi2013/MitoZ)
+- [Python3](https://www.python.org/)
+- [Samtools](http://quinlanlab.org/tutorials/samtools/samtools.html) (v1.9)
+- [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) (v2.3.5.1)
+- [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) (v2.8.5)
+- [SPAdes](http://cab.spbu.ru/software/spades/) (v3.13.1)
+- [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4)
 
 # Usage
 
 ```
 
 ```
+
+Pipeline workflow
+=================
+
+<!--- add a figure with the pipeline -->
 
 Reference
 =========
