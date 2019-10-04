@@ -55,3 +55,24 @@ Contact
 =======
 
 To report bugs, to ask for help and to give any feedback, please contact **Pedro G. Nachtigall**: pedronachtigall@gmail.com
+
+<!---
+Frequently Asked Questions (FAQ)
+================================
+
+Why the name of the software is MITGARD?
+- The tool is named MITGARD, due to the similarity with [MIDGARD](https://en.wikipedia.org/wiki/Midgard). MIDGARD is the name of Earth in the Norse mythology and protected by a serpent. MITGARD was firstly designed to reconstruct the mitochondrial genome os brazilian snakes. 
+
+How can I trimm and perform quality filter on my fasq files?
+- We normally use [Trim_Galore](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) to perform quality and adapter trimming by using the following command:
+```
+trim_galore --paired --phred33 --length 75 -q 5 --stringency 1 -e 0.1 -o trim_galore_out Sample_R1.fastq.gz Sample_R2.fastq.gz
+```
+
+Can I use merged reads instead of my paire-end reads?
+- Yes, we recommend to use [PEAR](https://cme.h-its.org/exelixis/web/software/pear/) to merge paire-end files by using the following command:
+```
+pear -k -j 32 -f R1.fastq.gz -r R2.fastq.gz -o output
+```
+
+-->
