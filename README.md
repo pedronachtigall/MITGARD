@@ -29,7 +29,7 @@ Decompress the tar.gz file:
 - [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4)
 -->
 
-Check the ["Installing the dependencies"](https://github.com/pedronachtigall/MITGARD/installing_dependencies.md) files to get help on installing all requirements to run MITGARD.
+Check the ["Installing the dependencies"](https://github.com/pedronachtigall/MITGARD/installing_dependencies.md) file to get help on installing all requirements to run MITGARD.
 
 # Usage
 
