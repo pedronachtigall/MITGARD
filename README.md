@@ -28,11 +28,17 @@ Decompress the tar.gz file:
 - [SPAdes](http://cab.spbu.ru/software/spades/) (v3.13.1)
 - [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4)
 -->
+
+Check the ["Installing the dependencies"](https://github.com/pedronachtigall/MITGARD/installing_dependencies.md) files to get help on installing all requirements to run MITGARD.
+
 # Usage
 
 ```
 
 ```
+
+Avoid to have space and/or special characters at the reference header used to bait reads for the mitochondrial genome assembly.
+
 
 Pipeline workflow
 =================
@@ -74,5 +80,6 @@ Can I use merged reads instead of my paire-end reads?
 ```
 pear -k -j 32 -f R1.fastq.gz -r R2.fastq.gz -o output
 ```
+
 
 -->
