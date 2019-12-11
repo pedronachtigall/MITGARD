@@ -1,4 +1,4 @@
-<!--- ![mitgard_logo](/mitgard_logo.png) -->
+![mitgard_logo](/mitgard_logo.png)
 
 MITGARD
 =======
