@@ -30,7 +30,7 @@ export PATH=$PATH:path/to/MITGARD-master/bin/
 - [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4)
 -->
 Ensure that all requirements are working properly.
-If you need help on installing all requirements to run MITGARD, check the ["Installing the dependencies"](https://github.com/pedronachtigall/MITGARD/installing_dependencies.md) file.
+If you need help on installing all requirements to run MITGARD, check the ["Installing the dependencies"](https://github.com/pedronachtigall/MITGARD/blob/master/installing_dependencies.md) file.
 
 # Usage
 
