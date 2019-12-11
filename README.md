@@ -6,16 +6,17 @@ MITGARD
 <!---[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3403273.svg)](https://doi.org/10.5281/zenodo.3403273) -->
 <!---[![Published in Genome Biology](https://img.shields.io/badge/published%20in-Genome%20Biology-blue.svg)](https://doi.org/10.1101/gr.214270.116) -->
 
-MITGARD () ...
+MITGARD (**Mit**ochondrial **G**enome **A**ssembly from **R**NA-seq **D**ata) ...
 
 Getting Started
 =================
 
 # Installation
 
-Decompress the tar.gz file:
+Download the master folder and follow the steps below:
 ```
-
+unzip MITGARD-master.zip
+export PATH=$PATH:path/to/MITGARD-master/bin/
 ```
 
 
@@ -28,17 +29,58 @@ Decompress the tar.gz file:
 - [SPAdes](http://cab.spbu.ru/software/spades/) (v3.13.1)
 - [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4)
 -->
-
-Check the ["Installing the dependencies"](https://github.com/pedronachtigall/MITGARD/installing_dependencies.md) file to get help on installing all requirements to run MITGARD.
+Ensure that all requirements are working properly.
+If you need help on installing all requirements to run MITGARD, check the ["Installing the dependencies"](https://github.com/pedronachtigall/MITGARD/installing_dependencies.md) file.
 
 # Usage
 
 ```
+Usage: MITGARD.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -s string, --sample=string
+                        Mandatory - sample ID to be used in the output files
+                        and final mitogenome assembly
+  -S fq, --single_end=fq
+                        Mandatory - input single-end fq file (FASTQ format),
+                        /path/to/single_end.fq ; the fq file can be in .gz the
+                        compressed format
+  -1 fq, --paired_read1=fq
+                        Mandatory - input paired-end read 1 fq file (FASTQ
+                        format), /path/to/paired_read1.fq ; the fq file can be
+                        in .gz the compressed format
+  -2 fq, --paired_read2=fq
+                        Mandatory - input paired-end read 2 fq file (FASTQ
+                        format), /path/to/paired_read2.fq ; the fq file can be
+                        in .gz the compressed format
+  -R fasta, --reference=fasta
+                        Mandatory - input mitogenome in FASTA format to be
+                        used as reference, /path/to/reference.fa
+  -L string, --low_coverage=string
+                        Optional - this parameter decide what to do with low
+                        coverage regions. Use "N" to assign N's in the low
+                        coverage regions. Use "R" to assign the Reference
+                        nucleotides in the low coverage regions. [default=N]
+  -c int, --cpu=int     Optional - number of threads to be used in each step
+                        [default=1]
+  -M string, --memory=string
+                        Optional - Max memory usage to be passed to Trinity
+                        assembler [default=4G], use the same format as stated
+                        by Trinity assembler
 
 ```
 
-Avoid to have space and/or special characters at the reference header used to bait reads for the mitochondrial genome assembly.
+Usage in PAIRED-END mode:
+```
+MITGARD.py -s sample_id -1 paired_R1.fq -2 paired_R2.fq -R reference.fa
+```
+Usage in SINGLED-END mode:
+```
+MITGARD.py -s sample_id -S single_end.fq -R reference.fa
+```
 
+Avoid to have space and/or special characters at the reference header used to bait reads for the mitochondrial genome assembly.
 
 Pipeline workflow
 =================
