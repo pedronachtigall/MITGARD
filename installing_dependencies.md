@@ -19,6 +19,11 @@ cp samtools ~/bin
 
 Bowtie2
 =======
+Download Bowtie2 v2.3.5.1 [here](https://sourceforge.net/projects/bowtie-bio/files/bowtie2/2.3.5.1/) and follow the steps below:
+```
+unzip bowtie2-2.3.5.1-linux-x86_64.zip
+export PATH=$PATH:path/to/bowtie2-2.3.5.1-linux-x86_64/
+```
 
 Trinity
 =======
