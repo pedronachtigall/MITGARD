@@ -6,7 +6,7 @@ MITGARD
 <!---[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3403273.svg)](https://doi.org/10.5281/zenodo.3403273) -->
 <!---[![Published in Genome Biology](https://img.shields.io/badge/published%20in-Genome%20Biology-blue.svg)](https://doi.org/10.1101/gr.214270.116) -->
 
-MITGARD (**Mit**ochondrial **G**enome **A**ssembly from **R**NA-seq **D**ata) ...
+MITGARD (**Mit**ochondrial **G**enome **A**ssembly from **R**NA-seq **D**ata) is a computational tool designed to recover the mitochondrial genome from RNA-seq data of any Eukaryote species.
 
 Getting Started
 =================
@@ -80,7 +80,7 @@ Usage in SINGLED-END mode:
 MITGARD.py -s sample_id -S single_end.fq -R reference.fa
 ```
 
-Avoid to have space and/or special characters at the reference header used to bait reads for the mitochondrial genome assembly.
+Avoid to have space and/or special characters at the reference header used to bait reads for the mitochondrial genome assembly. For instance, if the header presents this format ```>NC_010972.2 Anolis carolinensis mitochondrion, complete genome```, replace the "spaces" for "underscore" (i.e., ```>NC_010972.2_Anolis_carolinensis_mitochondrion,_complete genome```) or remove the description after the first "space" (i.e., ```>NC_010972.2```).
 
 Pipeline workflow
 =================
