@@ -21,16 +21,16 @@ export PATH=$PATH:path/to/MITGARD-master/bin/
 
 
 # Requirements
-<!---
-- [Python3](https://www.python.org/)
+
+- [Python](https://www.python.org/)
 - [Samtools](http://quinlanlab.org/tutorials/samtools/samtools.html) (v1.9)
 - [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) (v2.3.5.1)
 - [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) (v2.8.5)
 - [SPAdes](http://cab.spbu.ru/software/spades/) (v3.13.1)
 - [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4)
--->
+
 Ensure that all requirements are working properly.
-If you need help on installing all requirements to run MITGARD, check the ["Installing the dependencies"](https://github.com/pedronachtigall/MITGARD/blob/master/installing_dependencies.md) file.
+If you need help on installing all requirements to run MITGARD, check the ["Installing_dependencies"](https://github.com/pedronachtigall/MITGARD/blob/master/installing_dependencies.md) file.
 
 # Usage
 
@@ -101,27 +101,26 @@ License
 
 Contact
 =======
+:bug::sos::speech_balloon:
 
 To report bugs, to ask for help and to give any feedback, please contact **Pedro G. Nachtigall**: pedronachtigall@gmail.com
 
-<!---
+
 Frequently Asked Questions (FAQ)
 ================================
-
+<!---
 Why the name of the software is MITGARD?
 - The tool is named MITGARD, due to the similarity with [MIDGARD](https://en.wikipedia.org/wiki/Midgard). MIDGARD is the name of Earth in the Norse mythology and protected by a serpent. MITGARD was firstly designed to reconstruct the mitochondrial genome os brazilian snakes. 
+-->
 
 How can I trimm and perform quality filter on my fasq files?
-- We normally use [Trim_Galore](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) to perform quality and adapter trimming by using the following command:
+- We use [Trim_Galore](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) to perform quality and adapter trimming by using the command below:
 ```
 trim_galore --paired --phred33 --length 75 -q 5 --stringency 1 -e 0.1 -o trim_galore_out Sample_R1.fastq.gz Sample_R2.fastq.gz
 ```
 
 Can I use merged reads instead of my paire-end reads?
-- Yes, we recommend to use [PEAR](https://cme.h-its.org/exelixis/web/software/pear/) to merge paire-end files by using the following command:
+- Yes, we recommend to use [PEAR](https://cme.h-its.org/exelixis/web/software/pear/) to merge paire-end files by using the command below:
 ```
 pear -k -j 32 -f R1.fastq.gz -r R2.fastq.gz -o output
 ```
-
-
--->
