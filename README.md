@@ -84,8 +84,16 @@ Avoid to have space and/or special characters at the reference header used to ba
 
 Pipeline workflow
 =================
-
-<!--- add a figure with the pipeline -->
+```
+|====================================================|
+|>Map reads to a reference mtDNA                     |
+|    >De novo Assembly - Trinity, SPAdes and MitoZ   |
+|    >Genome-guided Assembly - Trinity               |
+|>Mix all contigs                                    |
+|>Map contigs to reference mtDNA                     |
+|>Convert contigs to mitogenome assembly             |
+|====================================================|
+```
 
 Reference
 =========
@@ -119,7 +127,7 @@ How can I trimm and perform quality filter on my fasq files?
 trim_galore --paired --phred33 --length 75 -q 5 --stringency 1 -e 0.1 -o trim_galore_out Sample_R1.fastq.gz Sample_R2.fastq.gz
 ```
 
-Can I use merged reads instead of my paire-end reads?
+Can I use merged reads instead of my paired-end reads?
 - Yes, we recommend to use [PEAR](https://cme.h-its.org/exelixis/web/software/pear/) to merge paire-end files by using the command below:
 ```
 pear -k -j 32 -f R1.fastq.gz -r R2.fastq.gz -o output
