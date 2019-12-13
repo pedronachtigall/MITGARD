@@ -25,6 +25,7 @@ export PATH=$PATH:path/to/MITGARD-master/bin/
 - [Python](https://www.python.org/)
 - [Samtools](http://quinlanlab.org/tutorials/samtools/samtools.html) (v1.9)
 - [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) (v2.3.5.1)
+- [Minimap2](https://github.com/lh3/minimap2) (v2.17)
 - [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) (v2.8.5)
 - [SPAdes](http://cab.spbu.ru/software/spades/) (v3.13.1)
 - [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4)
