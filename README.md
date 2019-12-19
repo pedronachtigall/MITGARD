@@ -81,7 +81,10 @@ Usage in SINGLED-END mode:
 MITGARD.py -s sample_id -S single_end.fq -R reference.fa
 ```
 
+Check our [tutorial](https://github.com/pedronachtigall/MITGARD/blob/master/TUTORIAL.md) to learn how to use MITGARD.
+
 **Warning:** Avoid to have space and/or special characters at the reference header used to bait reads for the mitochondrial genome assembly. For instance, if the header presents this format ```>NC_010972.2 Anolis carolinensis mitochondrion, complete genome```, replace the "spaces" for "underscore" (i.e., ```>NC_010972.2_Anolis_carolinensis_mitochondrion,_complete_genome```) or remove the description after the first "space" (i.e., ```>NC_010972.2```).
+
 
 Pipeline workflow
 =================
