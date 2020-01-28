@@ -49,7 +49,7 @@ export PATH=$PATH:path/to/SPAdes-3.13.0-Linux/bin/
 
 MitoZ
 =====
-Download the MitoZ release 2.4 [here](release_MitoZ_v2.4-alpha.tar.bz2).
+Download the MitoZ release 2.4 [here](https://github.com/linzhi2013/MitoZ/blob/master/version_2.4-alpha/release_MitoZ_v2.4-alpha.tar.bz2).
 ```
 tar -jxvf release_MitoZ_v2.4-alpha.tar.bz2
 export PATH=$PATH:path/to/release_MitoZ_v2.4-alpha/
