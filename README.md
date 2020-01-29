@@ -22,7 +22,7 @@ export PATH=$PATH:path/to/MITGARD-master/bin/
 
 # Requirements
 
-- [Python](https://www.python.org/)
+- [Python](https://www.python.org/) and [Biopython](https://biopython.org/)
 - [Samtools](http://quinlanlab.org/tutorials/samtools/samtools.html) (v1.9)
 - [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) (v2.3.5.1)
 - [Minimap2](https://github.com/lh3/minimap2) (v2.17)
