@@ -33,6 +33,30 @@ export PATH=$PATH:path/to/MITGARD-master/bin/
 Ensure that all requirements are working properly.
 If you need help on installing all requirements to run MITGARD, check the ["Installing_dependencies"](https://github.com/pedronachtigall/MITGARD/blob/master/installing_dependencies.md) file.
 
+:warning:
+If you want to install MITGARD and all dependencies using Conda environment, follow the steps below:
+```
+conda create -n mitgard_env samtools=1.9 bowtie2=2.3.5 minimap2=2.17 trinity=2.8.5 spades=3.13.1 libgd=2.2.4 python=3.6.0 biopython=1.69 ete3=3.0.0b35 perl-list-moreutils perl-params-validate perl-clone circos=0.69 perl-bioperl blast=2.2.31 hmmer=3.1b2 bwa=0.7.12 infernal=1.1.1 tbl2asn openjdk
+
+git clone https://github.com/pedronachtigall/MITGARD.git
+export PATH=$PATH:path/to/MITGARD/bin/
+
+cd MITGARD/bin/
+git clone https://github.com/linzhi2013/MitoZ.git
+tar -jxvf MitoZ/version_2.4-alpha/release_MitoZ_v2.4-alpha.tar.bz2
+export PATH=$PATH:path/to/MITGARD/bin/release_MitoZ_v2.4-alpha/
+
+conda activate mitgard_env
+
+python3
+from ete3 import NCBITaxa
+ncbi = NCBITaxa()
+ncbi.update_taxonomy_database()
+quit()
+```
+  - Then, run MITGARD with paired-end or single-end mode.
+  - After, running MITGARD deactivate the conda environment ```conda deactivate```.
+
 # Usage
 
 ```
