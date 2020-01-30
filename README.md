@@ -18,6 +18,11 @@ Download the master folder and follow the steps below:
 unzip MITGARD-master.zip
 export PATH=$PATH:path/to/MITGARD-master/bin/
 ```
+Or git clone the MITGARD respository and add the bin folder into your PATH:
+```
+git clone https://github.com/pedronachtigall/MITGARD.git
+export PATH=$PATH:path/to/MITGARD/bin/
+```
 
 
 # Requirements
