@@ -65,7 +65,7 @@ The, enter in the python shell to download a dependecy from NCBI to run MitoZ:
 ```
 #enter in the python shell:
 python3
-#then follow the step below:
+#then follow the steps below:
 from ete3 import NCBITaxa
 ncbi = NCBITaxa()
 ncbi.update_taxonomy_database()
