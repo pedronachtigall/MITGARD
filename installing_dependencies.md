@@ -1,5 +1,12 @@
 A quick tutorial to install all requirements to run MITGARD.
 
+Python and Biopython
+====================
+```
+sudo apt install python3 pip
+pip install biopython ete3
+```
+
 Samtools
 ========
 Download the lastest release of [Samtools](http://quinlanlab.org/tutorials/samtools/samtools.html)
@@ -53,4 +60,14 @@ Download the MitoZ release 2.4 [here](https://github.com/linzhi2013/MitoZ/blob/m
 ```
 tar -jxvf release_MitoZ_v2.4-alpha.tar.bz2
 export PATH=$PATH:path/to/release_MitoZ_v2.4-alpha/
+```
+The, enter in the python shell to download a dependecy from NCBI to run MitoZ:
+```
+#enter in the python shell:
+python3
+#then follow the step below:
+from ete3 import NCBITaxa
+ncbi = NCBITaxa()
+ncbi.update_taxonomy_database()
+quit()
 ```
