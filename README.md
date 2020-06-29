@@ -164,3 +164,6 @@ trim_galore --paired --phred33 --length 75 -q 5 --stringency 1 -e 0.1 -o trim_ga
 ```
 pear -k -j 32 -f R1.fastq.gz -r R2.fastq.gz -o output
 ```
+
+**[Q3]** What OS do I need to use MITGARD?
+- We tested CodAn in Ubuntu 16 and 18. But, we believe that CodAn should work on any UNIX OS able to have all dependencies necessary to run MITGARD.
