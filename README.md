@@ -167,3 +167,9 @@ pear -k -j 32 -f R1.fastq.gz -r R2.fastq.gz -o output
 
 **[Q3]** What OS do I need to use MITGARD?
 - We tested CodAn in Ubuntu 16 and 18. But, we believe that CodAn should work on any UNIX OS able to have all dependencies necessary to run MITGARD.
+
+**[Q4]** How can I annotate the mitogenome assembled by MITGARD?
+- There is several tools and pipelines available to annotate mitochondrial genomes. However, we recommend using the [MITOS2 webserver](http://mitos2.bioinf.uni-leipzig.de/index.py) OR using the "annotate" module from [MitoZ](https://github.com/linzhi2013/MitoZ) with the command below:
+```
+MitoZ.py annotate --genetic_code auto --clade Chordata --outprefix annotation_output --thread_number N --fastafile mitogenome.fa
+```
