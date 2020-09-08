@@ -61,7 +61,7 @@ Download the MitoZ release 2.4 [here](https://github.com/linzhi2013/MitoZ/blob/m
 tar -jxvf release_MitoZ_v2.4-alpha.tar.bz2
 export PATH=$PATH:path/to/release_MitoZ_v2.4-alpha/
 ```
-The, enter in the python shell to download a dependecy from NCBI to run MitoZ:
+Then, enter in the python shell to download/update the taxonomy database of NCBITaxa necessary to run MitoZ:
 ```
 #enter in the python shell:
 python3
