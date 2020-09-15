@@ -40,8 +40,17 @@ If you need help on installing all requirements to run MITGARD, check the ["Inst
 
 :warning:
 If you want to install MITGARD and all dependencies using Conda environment, follow the steps below:
+
+1 - Ensure you have the conda-forge and bioconda channel added to the conda (it is important to add them in this order so that the priority is set correctly):
 ```
-conda create -n mitgard_env samtools=1.9 bowtie2=2.3.5 minimap2=2.17 trinity=2.8.5 spades=3.13.1 libgd=2.2.4 python=3.6.0 biopython=1.69 ete3=3.0.0b35 perl-list-moreutils perl-params-validate perl-clone circos=0.69 perl-bioperl blast=2.2.31 hmmer=3.1b2 bwa=0.7.12 infernal=1.1.1 tbl2asn openjdk
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+```
+
+2 - Set the environment for MITGARD with all dependencies by following the commands below:
+```
+conda create -n mitgard_env -c bioconda samtools=1.9 bowtie2=2.3.5 minimap2=2.17 trinity=2.8.5 spades=3.13.1 libgd=2.2.4 python=3.6 biopython=1.69 ete3=3.0.0b35 perl-list-moreutils perl-params-validate perl-clone circos=0.69 perl-bioperl blast=2.2.31 hmmer=3.1b2 bwa=0.7.12 infernal=1.1.1 tbl2asn openjdk
 
 git clone https://github.com/pedronachtigall/MITGARD.git
 export PATH=$PATH:path/to/MITGARD/bin/
