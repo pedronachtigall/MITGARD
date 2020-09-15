@@ -38,8 +38,9 @@ export PATH=$PATH:path/to/MITGARD/bin/
 Ensure that all requirements are working properly.
 If you need help on installing all requirements to run MITGARD, check the ["Installing_dependencies"](https://github.com/pedronachtigall/MITGARD/blob/master/installing_dependencies.md) file.
 
-:warning:
-If you want to install MITGARD and all dependencies using Conda environment, follow the steps below:
+:warning:**Installing MITGARD and dependencies 1**
+
+If you want to install MITGARD and all dependencies using [Conda environment](https://docs.conda.io/projects/conda/en/latest/index.html), follow the steps below:
 
 1 - Ensure you have both conda-forge and bioconda channels added to the conda (it is important to add them in this order so that the priority is set correctly):
 ```
@@ -70,6 +71,20 @@ quit()
 ```
   - Then, run MITGARD with paired-end or single-end mode.
   - After, running MITGARD deactivate the conda environment ```conda deactivate```.
+
+:warning: **Installing MITGARD and dependencies 2**
+
+There is two scripts available to perform a semi-automated installation of MITGARD and its dependencies using Conda, just follow the commands below:
+```
+git clone https://github.com/pedronachtigall/MITGARD.git
+cd MITGARD/
+bash install_MITGARD.sh
+conda activate mitgard_env
+python install_NCBITaxa.py
+```
+ - Then, run MITGARD with paired-end or single-end mode.
+ - To ensure that MITGARD and MitoZ will be permanently added to your PATH, open the ~/.bash_profile and add both commands ```export PATH=$PATH:path/to/MITGARD/bin/``` and ```export PATH=$PATH:path/to/MITGARD/bin/release_MitoZ_v2.4-alpha/``` at the end of your bash profile.
+ - If necessary, change the permissions of all files in MITGARD/bin/: chmod 777 MITGARD/bin/*
 
 # Usage
 
