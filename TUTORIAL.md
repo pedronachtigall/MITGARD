@@ -44,3 +44,19 @@ Running Single-End
   ```
 
 - Check the mitogenome assembly in the file ```Mmusculus_Muscle/Mmusculus_Muscle_mitogenome.fa```.
+
+Checking for rearrangements
+===========================
+
+- Organelle genomes may present some rearrangements, which can be checked by using the option ```--rearrangement True```.
+- Run MITGARD in single-end mode and with the rearrangement parameter activate:
+  ```
+  MITGARD.py -s Mmusculus_Muscle -S SRR594407_merged_Mmusculus_Muscle.assembled.fastq -R Mmusculus_NC_005089.fasta -c 40 -M 50G --rearrangement True
+  ```
+- Check the mitogenome assembly in ```Mmusculus_Muscle/Mmusculus_Muscle_mitogenome.fa``` and the rearrangement check in the folder ```RearrangementCheck/```.
+
+Checking the contigs file
+=========================
+
+- If the user wants to check all contigs generated and used to perform the mitogenome assembly, they are available at the file ```Mmusculus_Muscle/Mmusculus_Muscle_contigs.fasta```.
+- The contigs file may be used to any downstream analysis.
