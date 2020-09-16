@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 #script designed to check rearrangments in the mitogenome assembled by MITGARD
 #Author: Pedro G. Nachtigall (pedronachtigall@gmail.com)
@@ -30,7 +30,7 @@ def _RearrangementCheck_(mitogenome, contigs , outF):
 	C = _ParseFasta_(contigs)
 	count = 0
 	for k in C.keys():
-		if len(C[k]) >= rl-300 and len(C[k]) <= rl+300:
+		if len(C[k]) >= rl-(rl*0.90) and len(C[k]) <= rl+(rl*0.90):
 			newref["contig_"+str(count)] = C[k]
 			count += 1
 	if len(newref.keys()) > 0:
