@@ -30,7 +30,7 @@ def _RearrangementCheck_(mitogenome, contigs , outF):
 	C = _ParseFasta_(contigs)
 	count = 0
 	for k in C.keys():
-		if len(C[k]) >= rl-(rl*0.90) and len(C[k]) <= rl+(rl*0.90):
+		if len(C[k]) >= rl-(rl*0.10) and len(C[k]) <= rl+(rl*0.10):
 			newref["contig_"+str(count)] = C[k]
 			count += 1
 	if len(newref.keys()) > 0:
