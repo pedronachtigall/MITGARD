@@ -15,7 +15,7 @@ A quick tutorial to use MITGARD
 
   - Clean the header of the fasta (delete all strings after the first "space" or replace "space" with "underscore").
     ```
-    cat Mmusculus_NC_005089.fasta | sed 's/ /_/g' > Mmusculus_NC_005089.fasta 
+    sed 's/ /_/g' Mmusculus_NC_005089.fasta > Mmusculus_NC_005089.fasta 
     ```
 
 Running Paired-End
@@ -23,7 +23,7 @@ Running Paired-End
 
 - Run MITGARD in paired-end mode:
   ```
-  MITGARD.py -s Mmusculus_Muscle -1 SRR594408_pass_1.fastq.gz -2 SRR594408_pass_2.fastq.gz -R Mmusculus_NC_005089.fasta -c 40 -M 50G
+  MITGARD.py -s Mmusculus_Muscle -1 SRR594407_pass_1.fastq.gz -2 SRR594407_pass_2.fastq.gz -R Mmusculus_NC_005089.fasta -c 40 -M 50G
   ```
 
 - Check the mitogenome assembly in the file ```Mmusculus_Muscle/Mmusculus_Muscle_mitogenome.fa```.
