@@ -72,8 +72,9 @@ ncbi = NCBITaxa()
 ncbi.update_taxonomy_database()
 quit()
 ```
-  - Then, run MITGARD with paired-end or single-end mode.
-  - After, running MITGARD deactivate the conda environment ```conda deactivate```.
+ - If necessary, change the permissions of all files in MITGARD/bin/: ```chmod 777 MITGARD/bin/*```
+ - Then, run MITGARD with paired-end or single-end mode.
+ - After, running MITGARD deactivate the conda environment ```conda deactivate```.
 
 :warning: **Installing MITGARD and dependencies - alternative 3**
 
@@ -109,6 +110,18 @@ export PATH=$PATH:path/to/MITGARD/bin/release_MitoZ_v2.4-alpha/"
  - To ensure that MITGARD and MitoZ will be permanently added to your PATH, open the ~/.bash_profile and add both commands ```export PATH=$PATH:path/to/MITGARD/bin/``` and ```export PATH=$PATH:path/to/MITGARD/bin/release_MitoZ_v2.4-alpha/``` at the end of your bash profile.
  - If necessary, change the permissions of all files in MITGARD/bin/: ```chmod 777 MITGARD/bin/*```
 
+Pipeline workflow
+=================
+```
+|=======================================================|
+|>Map reads to a reference mtDNA                        |
+|    >De novo Assembly - Trinity, rnaSPAdes and MitoZ   |
+|    >Genome-guided Assembly - Trinity                  |
+|>Mix all contigs                                       |
+|>Map contigs to reference mtDNA                        |
+|>Convert contigs to mitogenome assembly                |
+|=======================================================|
+```
 
 # Usage
 
@@ -184,17 +197,25 @@ Check our [tutorial](https://github.com/pedronachtigall/MITGARD/blob/master/TUTO
    - After running the "RearrangementCheck" step, annotate all mitogenomes (e.g., using MITOS2 web server or the "annotate" module from Mitoz; see **Q4** in the FAQ section) and perform a manual check and correction of the gene order.
    - However, this implementation still has some limitations regarding the size of contigs generated to assembly the mitogenome. It is only able to perform the analysis when at least one of the contigs presents a similar size to the reference used (i.e., >= 90%). In our tests, most of the datasets were able to reach this range of size, which allowed to check for rearrangements. If the dataset generates more fragmented contigs, the user should perform a manual check on the contigs generated (i.e., a file with the contigs is kept during MITGARD processing, ```sample_contigs.fasta```), which will help to identify rearrangements and correct the mitogenome assembly.
 
-Pipeline workflow
-=================
+Output
+======
+By default, MITGARD outputs the mitogenome asssembled and also keeps the files used to generate the final assembly. If the user performs the rearrangement check step (i.e., option ```--rearrangement True```), MITGARD will also create a directory named "RearrangementCheck".
 ```
-|=======================================================|
-|>Map reads to a reference mtDNA                        |
-|    >De novo Assembly - Trinity, rnaSPAdes and MitoZ   |
-|    >Genome-guided Assembly - Trinity                  |
-|>Mix all contigs                                       |
-|>Map contigs to reference mtDNA                        |
-|>Convert contigs to mitogenome assembly                |
-|=======================================================|
+MITGARD_output/
+├──  sample_mitogenome.fa
+├──  sample_contigs.fasta
+├──  align.sam
+├──  consensus.mfa.fasta
+├──  mapped/
+│   ├──  sample_mapped.fasta
+│   ├──  sample_mapped.fq
+│   └──  sample_mapped_sorted.bam
+└──  RearrangementCheck/
+    ├──  alignN.sam
+    ├──  consensusN.mfa.fasta
+    ├──  contigsN
+    ├──  newrefN
+    └──  newrefN_mitogenome.fa
 ```
 
 Reference
