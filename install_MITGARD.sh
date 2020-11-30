@@ -24,13 +24,21 @@ echo "Adding MITGARD and MitoZ to your PATH."
 #cwd = $(pwd)
 #echo $(pwd)"/bin/"
 #echo $(pwd)"/bin/release_MitoZ_v2.4-alpha/"
-export PATH=$PATH:$(pwd)"/bin/"
-export PATH=$PATH:$(pwd)"/bin/release_MitoZ_v2.4-alpha/"
+#export PATH=$PATH:$(pwd)"/bin/"
+echo "export PATH=$PATH:$(pwd)/bin/" >> ~/.bash_profile
+#export PATH=$PATH:$(pwd)"/bin/release_MitoZ_v2.4-alpha/"
+echo "export PATH=$PATH:$(pwd)/bin/release_MitoZ_v2.4-alpha/" >> ~/.bash_profile
 
-echo "*************************"
-echo "Important!"
-echo "Add the path/to/MITGARD/bin/ and path/to/MITGARD/bin/release_MitoZ_v2.4-alpha/ in your ~/.bash_profile or ~/.bashrc files to have it permanently in your PATH."
-echo "If necessary, change the permissions of all files in MITGARD/bin: chmod 777 MITGARD/bin/*.py"
-echo "*************************"
+source ~/.bash_profile
+
+#echo "*************************"
+#echo "Important!"
+#echo "Add the path/to/MITGARD/bin/ and path/to/MITGARD/bin/release_MitoZ_v2.4-alpha/ in your ~/.bash_profile or ~/.bashrc files to have it permanently in your PATH."
+#echo "If necessary, change the permissions of all files in MITGARD/bin: chmod 777 MITGARD/bin/*.py"
+#echo "*************************"
+
+echo "MITGARD isntallation is almost done. Proceed to the next steps:"
+echo " - conda activate mitgard_env"
+echo " - python install_NCBITaxa.py"
 
 #END
