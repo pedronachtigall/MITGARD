@@ -89,7 +89,6 @@ conda activate mitgard_env
 python install_NCBITaxa.py
 ```
  - Then, run MITGARD with paired-end or single-end mode.
- - To ensure that MITGARD and MitoZ will be permanently added to your PATH, open the ~/.bash_profile and add both commands ```export PATH=$PATH:path/to/MITGARD/bin/``` and ```export PATH=$PATH:path/to/MITGARD/bin/release_MitoZ_v2.4-alpha/``` at the end of your bash profile.
  - If necessary, change the permissions of all files in MITGARD/bin/: ```chmod 777 MITGARD/bin/*```
 
 :warning: **Installing MITGARD and dependencies - alternative 4**
@@ -105,11 +104,11 @@ cd bin/
 git clone https://github.com/linzhi2013/MitoZ.git
 tar -jxvf MitoZ/version_2.4-alpha/release_MitoZ_v2.4-alpha.tar.bz2
 cd ..
-export PATH=$PATH:path/to/MITGARD/bin/"
-export PATH=$PATH:path/to/MITGARD/bin/release_MitoZ_v2.4-alpha/"
+echo "export PATH=$PATH:$(pwd)/bin/" >> ~/.bash_profile
+echo "export PATH=$PATH:$(pwd)/bin/release_MitoZ_v2.4-alpha/" >> ~/.bash_profile
+source ~/.bash_profile
 ```
  - Then, run MITGARD with paired-end or single-end mode.
- - To ensure that MITGARD and MitoZ will be permanently added to your PATH, open the ~/.bash_profile and add both commands ```export PATH=$PATH:path/to/MITGARD/bin/``` and ```export PATH=$PATH:path/to/MITGARD/bin/release_MitoZ_v2.4-alpha/``` at the end of your bash profile.
  - If necessary, change the permissions of all files in MITGARD/bin/: ```chmod 777 MITGARD/bin/*```
 
 Pipeline workflow
