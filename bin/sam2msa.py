@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 #script designed to convert sam files to msa fasta file for downstream analysis
 
