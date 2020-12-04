@@ -54,7 +54,7 @@ conda config --add channels conda-forge
 
 2 - Set the environment for MITGARD with all dependencies by following the commands below:
 ```
-conda create -n mitgard_env samtools=1.9 bowtie2=2.3.5 minimap2=2.17 trinity=2.8.5 spades=3.13.1 libgd=2.2.4 python=3.6 biopython=1.69 ete3=3.0.0b35 perl-list-moreutils perl-params-validate perl-clone circos=0.69 perl-bioperl blast=2.2.31 hmmer=3.1b2 bwa=0.7.12 infernal=1.1.1 tbl2asn openjdk
+conda create -n mitgard_env samtools=1.9 bowtie2=2.3.5 minimap2=2.17 trinity=2.8.5 spades=3.13.1 libgd=2.2.4 python=3.6 biopython=1.69 ete3 perl-list-moreutils perl-params-validate perl-clone circos=0.69 perl-bioperl blast=2.2.31 hmmer=3.1b2 bwa=0.7.12 infernal=1.1.1 tbl2asn openjdk
 
 git clone https://github.com/pedronachtigall/MITGARD.git
 echo "export PATH=$PATH:$(pwd)/MITGARD/bin/" >> ~/.bash_profile
@@ -260,4 +260,14 @@ pear -k -j 32 -f R1.fastq.gz -r R2.fastq.gz -o output
 - There is several tools and pipelines available to annotate mitochondrial genomes. However, we recommend using the [MITOS2 webserver](http://mitos2.bioinf.uni-leipzig.de/index.py) OR using the "annotate" module from [MitoZ](https://github.com/linzhi2013/MitoZ) with the command below:
 ```
 MitoZ.py annotate --genetic_code auto --clade Chordata --outprefix annotation_output --thread_number N --fastafile mitogenome.fa
+```
+**[Q5]** The script ```install_NCBITaxa.py``` is returning errors or not properly installing and/or updating the NCBITaxa properly. What to do?
+- Try to update ete3 module through ```pip install --upgrade ete3```.
+- If updating "ete3" module not works, it may be due to an unstable connection to NCBI. Then, download the ```taxdump.tar.gz``` file by yourself by following the instructions below.
+```
+wget -c http://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
+python
+from ete3 import NCBITaxa
+NCBITaxa(taxdump_file='/path/to/taxdump.tar.gz')
+quit()
 ```
