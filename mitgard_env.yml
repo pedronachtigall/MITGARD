@@ -12,7 +12,7 @@ dependencies:
   - libgd=2.2
   - python=3.6
   - biopython=1.69
-  - ete3=3.0.0b35
+  - ete3
   - perl-list-moreutils
   - perl-params-validate
   - perl-clone
