@@ -4,7 +4,7 @@ MITGARD
 =======
 <!---[![Latest GitHub release](https://img.shields.io/github/release/pedronachtigall/MITGARD.svg)](https://github.com/pedronachtigall/MITGARD/releases/latest) -->
 <!---[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3403273.svg)](https://doi.org/10.5281/zenodo.3403273) -->
-<!---[![Published in Genome Biology](https://img.shields.io/badge/published%20in-Genome%20Biology-blue.svg)](https://doi.org/10.1101/gr.214270.116) -->
+[![Published in Briefings in Bioinformatics](https://img.shields.io/badge/published%20in-Briefings%20in%20Bioinformatics-blue)](https://doi.org/10.1093/bib/bbaa429)
 
 MITGARD (**Mit**ochondrial **G**enome **A**ssembly from **R**NA-seq **D**ata) is a computational tool designed to recover the mitochondrial genome from RNA-seq data of any Eukaryote species.
 
@@ -224,7 +224,8 @@ Reference
 
 If you use or discuss MITGARD, please cite:
 
-Nachtigall et al., under review
+Nachtigall et al. (2021) MITGARD: an automated pipeline for mitochondrial genome assembly in eukaryotic species using RNA-seq data. Briefings in Bioinformatics. DOI:[https://doi.org/10.1093/bib/bbaa429](https://doi.org/10.1093/bib/bbaa429)
+
 
 License
 =======
