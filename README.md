@@ -183,7 +183,7 @@ Usage in SINGLED-END mode:
 MITGARD.py -s sample_id -S single_end.fq -R reference.fa
 ```
 
-Check our [tutorial](https://github.com/pedronachtigall/MITGARD/blob/master/TUTORIAL.md) to learn how to use MITGARD.
+Check our [quick tutorial](https://github.com/pedronachtigall/MITGARD/tree/master/Tutorial) designed with simulated data to learn how to use MITGARD. Check our [SRA tutorial](https://github.com/pedronachtigall/MITGARD/blob/master/TUTORIAL_SRA.md) to use MITGARD with real dataset available at SRA.
 
 :warning:**Warning:**
 
