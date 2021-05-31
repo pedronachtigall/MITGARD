@@ -19,7 +19,10 @@ Running Paired-End
 
 Running Single-End
 ==================
-- If the user wants to use/test single-end mode, reads can concatenated together: `cat AD5_R1.fastq.gz AD5_R2.fastq.gz > AD5_merge.fastq.gz`
+- If the user wants to use/test single-end mode, reads can concatenated together. Reads could also be merged using [PEAR](https://cme.h-its.org/exelixis/web/software/pear/). For this tutorial, we choose to break the pairs and concatenate files together into one file.
+    ```
+    cat AD5_R1.fastq.gz AD5_R2.fastq.gz > AD5_merge.fastq.gz
+    ```
 
 - Create the output directory and change to the output directory: `mkdir test_SE && cd test_SE`
 
