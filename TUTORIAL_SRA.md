@@ -1,7 +1,7 @@
 Tutorial
 ========
 
-A quick tutorial to use MITGARD
+A quick tutorial to use MITGARD with RNA-seq data available at the [SRA database](https://www.ncbi.nlm.nih.gov/sra).
 
 - Download the available paired-end dataset SRR594407 of RNA-seq from Skeletal Muscle of *Mus musculus* from the SRA using [fastq-dump](https://ncbi.github.io/sra-tools/fastq-dump.html).
   ```
