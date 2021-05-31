@@ -111,6 +111,22 @@ source ~/.bash_profile
  - Then, run MITGARD with paired-end or single-end mode.
  - If necessary, change the permissions of all files in MITGARD/bin/: ```chmod 777 MITGARD/bin/*```
 
+:warning: **Docker installation**
+
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/pedronachtigall/mitgard)
+
+If the user takes advantage of [Docker](https://docs.docker.com/) in its system, we have a pre-built Dockerfile that allows an easy build and containerization of MITGARD. Just follow the steps below:
+- Git clone MITGARD repository (`git clone https://github.com/pedronachtigall/MITGARD.git`) and change to MITGARD directory (`cd MITGARD`)
+- Build the container: `docker build -t mitgard:v1.0 .` (It may take a few minutes)
+- In your working directory (the reads and reference files should be in there), enter in the container shell: `docker run -v $PWD:/project --rm -it mitgard:v1.0`
+- Run MITGARD with paired-end or single-end mode
+
+The user may also pull MITGARD container direct from the Docker repository following the steps below:
+- Pull MITGARD container: `docker pull pedronachtigall/mitgard:latest`
+- Run MITGARD container: `docker run -v $PWD:/project --rm -it pedronachtigall/mitgard:latest`
+    - Please, notice that you should be in the folder containing your reads and reference files
+- Run MITGARD with paired-end or single-end mode
+
 Pipeline workflow
 =================
 ```
