@@ -111,6 +111,18 @@ source ~/.bash_profile
  - Then, run MITGARD with paired-end or single-end mode.
  - If necessary, change the permissions of all files in MITGARD/bin/: ```chmod 777 MITGARD/bin/*```
 
+:warning: **Conda installation**
+
+[![Install with conda](https://img.shields.io/badge/Install%20with-conda-success)](https://anaconda.org/bioconda/mitgard)
+
+MITGARD can be installed with Conda by using the command: `conda install -c bioconda mitgard`
+
+The user can also create an environment with the command: `conda create -n mitgard_env -c bioconda mitgard`. Then, activate the environment `conda activate mitgard_env` and run MITGARD with paired-end or single-end mode.
+
+- Please, notice that the Conda installation of MITGARD does not install MitoZ. If you want to also use MitoZ in the assembling step, follow one of MITGARD's installation alternatives mentioned above or adjust the "Conda create" command line based on your expertise.
+
+- If you are a MacOS user, notice that the Trinity assembler may present errors when installed through Conda in MacOS. In this case, check how to properly install Trinity in MacOS following Trinity's [documentation](https://github.com/trinityrnaseq/trinityrnaseq/wiki) and follow one of MITGARD's installation alternatives mentioned above by adjusting it.
+
 :warning: **Docker installation**
 
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/pedronachtigall/mitgard)
