@@ -4,7 +4,7 @@ MITGARD
 =======
 <!---[![Latest GitHub release](https://img.shields.io/github/release/pedronachtigall/MITGARD.svg)](https://github.com/pedronachtigall/MITGARD/releases/latest) -->
 <!---[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3403273.svg)](https://doi.org/10.5281/zenodo.3403273) -->
-<!---[![Published in Genome Biology](https://img.shields.io/badge/published%20in-Genome%20Biology-blue.svg)](https://doi.org/10.1101/gr.214270.116) -->
+[![Published in Briefings in Bioinformatics](https://img.shields.io/badge/published%20in-Briefings%20in%20Bioinformatics-blue)](https://doi.org/10.1093/bib/bbaa429)
 
 MITGARD (**Mit**ochondrial **G**enome **A**ssembly from **R**NA-seq **D**ata) is a computational tool designed to recover the mitochondrial genome from RNA-seq data of any Eukaryote species.
 
@@ -33,7 +33,7 @@ export PATH=$PATH:path/to/MITGARD/bin/
 - [Minimap2](https://github.com/lh3/minimap2) (v2.17)
 - [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) (v2.8.5)
 - [SPAdes](http://cab.spbu.ru/software/spades/) (v3.13.1)
-- [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4)
+- [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4) - Optional
 
 Ensure that all requirements are working properly.
 
@@ -52,9 +52,9 @@ conda config --add channels bioconda
 conda config --add channels conda-forge
 ```
 
-2 - Set the environment for MITGARD with all dependencies by following the commands below:
+2 - Set the environment for MITGARD with all dependencies by following the commands below (please, change "/.bash_profile" to "/.bashrc" if it is your bash source):
 ```
-conda create -n mitgard_env samtools=1.9 bowtie2=2.3.5 minimap2=2.17 trinity=2.8.5 spades=3.13.1 libgd=2.2.4 python=3.6 biopython=1.69 ete3=3.0.0b35 perl-list-moreutils perl-params-validate perl-clone circos=0.69 perl-bioperl blast=2.2.31 hmmer=3.1b2 bwa=0.7.12 infernal=1.1.1 tbl2asn openjdk
+conda create -n mitgard_env samtools=1.9 bowtie2=2.3.5 minimap2=2.17 trinity=2.8.5 spades=3.13.1 libgd=2.2.4 python=3.6 biopython=1.69 ete3 perl-list-moreutils perl-params-validate perl-clone circos=0.69 perl-bioperl blast=2.2.31 hmmer=3.1b2 bwa=0.7.12 infernal=1.1.1 tbl2asn openjdk
 
 git clone https://github.com/pedronachtigall/MITGARD.git
 echo "export PATH=$PATH:$(pwd)/MITGARD/bin/" >> ~/.bash_profile
@@ -93,7 +93,7 @@ python install_NCBITaxa.py
 
 :warning: **Installing MITGARD and dependencies - alternative 4**
 
-Install all dependencies through conda with an ".yml" file with few manual steps. Ensure that the conda channels are added correctly (see "Installing MITGARD and dependencies - alternative 2") and follow the commands below:
+Install all dependencies through conda with an ".yml" file with few manual steps. Ensure that the conda channels are added correctly (see "Installing MITGARD and dependencies - alternative 2") and follow the commands below (please, change "/.bash_profile" to "/.bashrc" if it is your bash source):
 ```
 git clone https://github.com/pedronachtigall/MITGARD.git
 cd MITGARD/
@@ -110,6 +110,34 @@ source ~/.bash_profile
 ```
  - Then, run MITGARD with paired-end or single-end mode.
  - If necessary, change the permissions of all files in MITGARD/bin/: ```chmod 777 MITGARD/bin/*```
+
+:warning: **Conda installation**
+
+[![Install with conda](https://img.shields.io/badge/Install%20with-conda-success)](https://anaconda.org/bioconda/mitgard)
+
+MITGARD can be installed with Conda by using the command: `conda install -c bioconda mitgard`
+
+The user can also create an environment with the command: `conda create -n mitgard_env -c bioconda mitgard`. Then, activate the environment `conda activate mitgard_env` and run MITGARD with paired-end or single-end mode.
+
+- Please, notice that the Conda installation of MITGARD does not install MitoZ. If you want to also use MitoZ in the assembling step, follow one of MITGARD's installation alternatives mentioned above or adjust the "Conda create" command line based on your expertise.
+
+- If you are a MacOS user, notice that the Trinity assembler may present errors when installed through Conda in MacOS. In this case, check how to properly install Trinity in MacOS following Trinity's [documentation](https://github.com/trinityrnaseq/trinityrnaseq/wiki) and follow one of MITGARD's installation alternatives mentioned above by adjusting it.
+
+:warning: **Docker installation**
+
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/pedronachtigall/mitgard)
+
+If the user takes advantage of [Docker](https://docs.docker.com/) in its system, we have a pre-built Dockerfile that allows an easy build and containerization of MITGARD. Just follow the steps below:
+- Git clone MITGARD repository (`git clone https://github.com/pedronachtigall/MITGARD.git`) and change to MITGARD directory (`cd MITGARD`)
+- Build the container: `docker build -t mitgard:v1.0 .` (It may take a few minutes)
+- In your working directory (the reads and reference files should be in there), enter in the container shell: `docker run -v $PWD:/project --rm -it mitgard:v1.0`
+- Run MITGARD with paired-end or single-end mode
+
+The user may also pull MITGARD container direct from the Docker repository following the steps below:
+- Pull MITGARD container: `docker pull pedronachtigall/mitgard:latest`
+- Run MITGARD container: `docker run -v $PWD:/project --rm -it pedronachtigall/mitgard:latest`
+    - Please, notice that you should be in the folder containing your reads and reference files
+- Run MITGARD with paired-end or single-end mode
 
 Pipeline workflow
 =================
@@ -149,6 +177,15 @@ Options:
   -R fasta, --reference=fasta
                         Mandatory - input mitogenome in FASTA format to be
                         used as reference, /path/to/reference.fa
+  -a string, --assembler=string
+                        Optional - this parameter sets the assembler tools to
+                        be used to generate the mitochondrial contigs. Choice
+                        one from trinity, spades and mitoz or make combination
+                        between them (e.g., "trinity,spades,mitoz", or
+                        "trinity,mitoz", etc). By default, MITGARD uses
+                        trinity and spades, which were shown to recover the
+                        entire mitochondrial genome using RNA-seq data.
+                        [default=trinity,spades]
   -L string, --low_coverage=string
                         Optional - this parameter decide what to do with low
                         coverage regions. Use "N" to assign N's in the low
@@ -183,7 +220,7 @@ Usage in SINGLED-END mode:
 MITGARD.py -s sample_id -S single_end.fq -R reference.fa
 ```
 
-Check our [tutorial](https://github.com/pedronachtigall/MITGARD/blob/master/TUTORIAL.md) to learn how to use MITGARD.
+Check our [quick tutorial](https://github.com/pedronachtigall/MITGARD/tree/master/Tutorial) designed with simulated data to learn how to use MITGARD. Check our [SRA tutorial](https://github.com/pedronachtigall/MITGARD/blob/master/TUTORIAL_SRA.md) to use MITGARD with real dataset available at SRA.
 
 :warning:**Warning:**
 
@@ -192,9 +229,11 @@ Check our [tutorial](https://github.com/pedronachtigall/MITGARD/blob/master/TUTO
 
 :warning:**Tips:**
 
-**[T1]** MITGARD has two optional parameters that will be passed directly to MitoZ, which is ```--clade``` and ```--genetic_code```, which by default is set to ```--clade Chordata``` and ```--genetic_code 2```. If you are using data from any species representative of other clade, please specify it by using these parameters. Please refer to https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi for more details. Specifying the best "clade" and "genetic_code" may improve the contigs generated by MitoZ, which may also improve the final mitogenome assembly generated by MITGARD.
+**[T1]** MITGARD has a parameter to set the assemblers used in the pipeline (i.e., `-a/--assembler` option). By default MITGARD uses Trinity and rnaSPAdes (i.e. `-a trinity,spades`), but the user can set to use any of the three assemblers that MITGARD was designed to work with (e.g., Trinity, SPAdes and/or MitoZ). For instance, if the user wants to use all three assemblers just set `-a trinity,spades,mitoz`, to use only Trinity set `-a trinity`, to use Trinity and MitoZ set `-a trinity,mitoz` and so on. Our tests revealed that Trinity and rnaSPAdes works well to recover the entire mitochondrial genome and we strongly recommend to always use both assemblers, which is the default (i.e., `-a trinity,spades`).
 
-**[T2]** MITGARD can perform an additional step to check for rearrangements. Use the options ```-r/--rearrangement True``` to perform this check step. If the user wants to run MITGARD with its default parameter and then performs the rearrangement check step later, just use the following command ```RearrangementCheck.py sample_mitogenome.fa sample_contigs.fa output_folder```.
+**[T2]** If setting MitoZ as assembler, MITGARD has two optional parameters that will be passed directly to MitoZ, which is ```--clade``` and ```--genetic_code```, which by default is set to ```--clade Chordata``` and ```--genetic_code 2```. If you are using data from any species representative of other clade, please specify it by using these parameters. Please refer to https://www.ncbi.nlm.nih.gov/Taxonomy/Utils/wprintgc.cgi for more details. Specifying the best "clade" and "genetic_code" may improve the contigs generated by MitoZ, which may also improve the final mitogenome assembly generated by MITGARD.
+
+**[T3]** MITGARD can perform an additional step to check for rearrangements. Use the options ```-r/--rearrangement True``` to perform this check step. If the user wants to run MITGARD with its default parameter and then performs the rearrangement check step later, just use the following command ```RearrangementCheck.py sample_mitogenome.fa sample_contigs.fa output_folder```.
    - After running the "RearrangementCheck" step, annotate the mitogenomes (e.g., using MITOS2 web server or the "annotate" module from Mitoz; see **Q4** in the FAQ section) and perform a manual check and correction of the gene order if needed.
    - However, this implementation still has some limitations regarding the size of contigs generated to assembly the mitogenome. It is only able to perform the analysis when at least one of the contigs presents a similar size to the reference used (i.e., >= 90%). In our tests, most of the datasets were able to reach this range of size, which allowed to check for rearrangements. If the dataset generates more fragmented contigs, the user should perform a manual check on the contigs generated (i.e., a file with the contigs is kept during MITGARD processing, ```sample_contigs.fasta```), which will help to identify rearrangements and correct the mitogenome assembly.
 
@@ -224,7 +263,8 @@ Reference
 
 If you use or discuss MITGARD, please cite:
 
-Nachtigall et al., under review
+Nachtigall et al. (2021) MITGARD: an automated pipeline for mitochondrial genome assembly in eukaryotic species using RNA-seq data. Briefings in Bioinformatics. DOI:[https://doi.org/10.1093/bib/bbaa429](https://doi.org/10.1093/bib/bbaa429)
+
 
 License
 =======
@@ -260,4 +300,14 @@ pear -k -j 32 -f R1.fastq.gz -r R2.fastq.gz -o output
 - There is several tools and pipelines available to annotate mitochondrial genomes. However, we recommend using the [MITOS2 webserver](http://mitos2.bioinf.uni-leipzig.de/index.py) OR using the "annotate" module from [MitoZ](https://github.com/linzhi2013/MitoZ) with the command below:
 ```
 MitoZ.py annotate --genetic_code auto --clade Chordata --outprefix annotation_output --thread_number N --fastafile mitogenome.fa
+```
+**[Q5]** The script ```install_NCBITaxa.py``` is returning errors or not properly installing and/or updating the NCBITaxa properly. What to do?
+- Try to update ete3 module through ```pip install --upgrade ete3```.
+- If updating "ete3" module not works, it may be due to an unstable connection to NCBI. Then, download the ```taxdump.tar.gz``` file by yourself by following the instructions below.
+```
+wget -c http://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
+python
+from ete3 import NCBITaxa
+NCBITaxa(taxdump_file='/path/to/taxdump.tar.gz')
+quit()
 ```
