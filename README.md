@@ -123,6 +123,8 @@ The user can also create an environment with the command: `conda create -n mitga
 
 - If you are a MacOS user, notice that the Trinity assembler may present errors when installed through Conda in MacOS. In this case, check how to properly install Trinity in MacOS following Trinity's [documentation](https://github.com/trinityrnaseq/trinityrnaseq/wiki) and follow one of MITGARD's installation alternatives mentioned above by adjusting it.
 
+- We noticed that few systems may break the Bowtie2 tool (and, consequently, MITGARD) due to a lack of the [```tbb```](https://en.wikipedia.org/wiki/Threading_Building_Blocks) library. This issue may be simply solved by installing this library using ```sudo apt-get install libtbb-dev``` to install the library in the system or ```conda install -c conda-forge tbb``` to install the library in the activated Conda environment.
+
 :warning: **Docker installation**
 
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/pedronachtigall/mitgard)
@@ -142,14 +144,14 @@ The user may also pull MITGARD container direct from the Docker repository follo
 Pipeline workflow
 =================
 ```
-|=======================================================|
-|>Map reads to a reference mtDNA                        |
-|    >De novo Assembly - Trinity, rnaSPAdes and MitoZ   |
-|    >Genome-guided Assembly - Trinity                  |
-|>Mix all contigs                                       |
-|>Map contigs to reference mtDNA                        |
-|>Convert contigs to mitogenome assembly                |
-|=======================================================|
+|==========================================================|
+|>Map reads to a reference mtDNA                           |
+|    >De novo Assembly - Trinity, rnaSPAdes and/or MitoZ   |
+|    >Genome-guided Assembly - Trinity                     |
+|>Mix all contigs                                          |
+|>Map contigs to reference mtDNA                           |
+|>Convert contigs to mitogenome assembly                   |
+|==========================================================|
 ```
 
 # Usage
