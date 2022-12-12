@@ -127,7 +127,7 @@ The user can also create an environment with the command: `conda create -n mitga
 
 :warning: **Docker installation**
 
-![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/pedronachtigall/mitgard)
+[![Docker build](https://img.shields.io/badge/Docker-build-blue)](https://hub.docker.com/repository/docker/pedronachtigall/mitgard)
 
 If the user takes advantage of [Docker](https://docs.docker.com/) in its system, we have a pre-built Dockerfile that allows an easy build and containerization of MITGARD. Just follow the steps below:
 - Git clone MITGARD repository (`git clone https://github.com/pedronachtigall/MITGARD.git`) and change to MITGARD directory (`cd MITGARD`)
