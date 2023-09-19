@@ -28,12 +28,15 @@ export PATH=$PATH:path/to/MITGARD/bin/
 # Requirements
 
 - [Python](https://www.python.org/) and [Biopython](https://biopython.org/)
-- [Samtools](http://quinlanlab.org/tutorials/samtools/samtools.html) (v1.9)
-- [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) (v2.3.5.1)
-- [Minimap2](https://github.com/lh3/minimap2) (v2.17)
+- [Samtools](http://quinlanlab.org/tutorials/samtools/samtools.html) (>=v1.9)
+- [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) (>=v2.3.5.1)
+- [Minimap2](https://github.com/lh3/minimap2) (>=v2.17)
 - [Trinity](https://github.com/trinityrnaseq/trinityrnaseq/wiki) (v2.8.5)
 - [SPAdes](http://cab.spbu.ru/software/spades/) (v3.13.1)
 - [MitoZ](https://github.com/linzhi2013/MitoZ) (v2.4) - Optional
+- [Hifiasm](https://github.com/chhylp123/hifiasm) - Optional (MITGARD-LR)
+- [Canu](https://github.com/marbl/canu) - Optional (MITGARD-LR)
+- [BLAST](https://www.ncbi.nlm.nih.gov/books/NBK279690/) - Optional (MITGARD-LR)
 
 Ensure that all requirements are working properly.
 
@@ -54,7 +57,7 @@ conda config --add channels conda-forge
 
 2 - Set the environment for MITGARD with all dependencies by following the commands below (please, change "/.bash_profile" to "/.bashrc" if it is your bash source):
 ```
-conda create -n mitgard_env samtools=1.9 bowtie2=2.3.5 minimap2=2.17 trinity=2.8.5 spades=3.13.1 libgd=2.2.4 python=3.6 biopython=1.69 ete3 perl-list-moreutils perl-params-validate perl-clone circos=0.69 perl-bioperl blast=2.2.31 hmmer=3.1b2 bwa=0.7.12 infernal=1.1.1 tbl2asn openjdk
+conda create -n mitgard_env samtools=1.9 bowtie2=2.3.5 minimap2=2.17 trinity=2.8.5 spades=3.13.1 libgd=2.2.4 python=3.6 biopython ete3 perl-list-moreutils perl-params-validate perl-clone circos=0.69 perl-bioperl blast=2.2.31 hmmer=3.1b2 bwa=0.7.12 infernal=1.1.1 tbl2asn openjdk
 
 git clone https://github.com/pedronachtigall/MITGARD.git
 echo "export PATH=$PATH:$(pwd)/MITGARD/bin/" >> ~/.bash_profile
@@ -258,6 +261,78 @@ MITGARD_output/
     ├──  contigsN
     ├──  newrefN
     └──  newrefN_mitogenome.fa
+```
+
+MITGARD-LR (Long-Read mode)
+===========================
+We designed a mode to perform mitochondrial genome assembly using **L**ong-**R**eads data (**MITGARD-LR**).
+
+It is an experimental pipeline, which is returning satisfactory results. However, it was not thoroughly tested yet.
+
+**Pipeline Workflow**
+```
+|==========================================================|
+|>Map reads to a reference mtDNA                           |
+|>Retrieve mitochondrial reads                             |
+|    >De novo assembly - hifiasm or canu                   |
+|>Map reference mtDNA to contigs                           |
+|>Convert best match to mitogenome assembly                |
+|==========================================================|
+```
+
+**Usage**
+```
+Usage: MITGARD-LR.py [options]
+
+Options:
+  -h, --help            show this help message and exit
+  -s string, --sample=string
+                        Mandatory - sample ID to be used in the output files
+                        and final mitogenome assembly
+  -r fq, --reads=fq     Mandatory - input long-reads fq file (FASTQ format),
+                        /path/to/long_read.fq ; the fq file can be in .gz the
+                        compressed format (e.g. long_read.fq.gz).
+  -R fasta, --reference=fasta
+                        Mandatory - input mitogenome in FASTA format to be
+                        used as reference, /path/to/reference.fa
+  -m string, --method=string
+                        Optional - this parameter indicates the type of long-
+                        read data being used (e.g., "pacbio_hifi",
+                        "pacbio_clr", or "nanopore"). If not set, the
+                        "pacbio_hifi" will be considered.
+                        [default=pacbio_hifi]
+  -l int, --length=int  Optional - this parameter indicates the estimated size
+                        of the final mitochondiral genome (in bp; e.g., use
+                        17000 for 17Kb). If not set, the estimated size will
+                        be considered similar to the reference being used.
+                        [default=length(reference)]
+  -c int, --cpu=int     Optional - number of threads to be used in each step
+                        [default=1]
+```
+
+Usage with PACBIO-HIFI data:
+```
+MITGARD-LR.py -s sample_id -m pacbio_hifi -r pacbio_hifi.fq(.gz) -R reference.fa
+```
+
+Usabe with PACBIO-CRL data:
+```
+MITGARD-LR.py -s sample_id -m pacbio_clr -r pacbio_clr.fq(.gz) -R reference.fa
+```
+
+Usage with NANOPORE data:
+```
+MITGARD-LR.py -s sample_id -m nanopore -r nanopore.fq(.gz) -R reference.fa
+```
+
+**Output**
+```
+MITGARD_output/
+├──  sample_mitogenome.fasta
+├──  mitogenome_contigs.fasta ("mito_genome.p_ctg.fa" OR "mito_canu/mito_genome.contigs.fasta")
+├──  mito_mapped.sam
+├──  match_report.txt
+└──  filtered_reads.fastq
 ```
 
 Reference
