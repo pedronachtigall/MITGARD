@@ -338,6 +338,8 @@ Usage with NANOPORE data:
 MITGARD-LR.py -s sample_id -m nanopore -r nanopore.fq(.gz) -R reference.fa
 ```
 
+Check our [quick tutorial](https://github.com/pedronachtigall/MITGARD/tree/master/Tutorial) to learn how to use MITGARD-LR and to test it.
+
 **Output**
 ```
 MITGARD_output/
