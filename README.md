@@ -128,6 +128,19 @@ The user can also create an environment with the command: `conda create -n mitga
 
 - We noticed that few systems may break the Bowtie2 tool (and, consequently, MITGARD) due to a lack of the [```tbb```](https://en.wikipedia.org/wiki/Threading_Building_Blocks) library (error message: ```error while loading shared libraries: libtbb.so.2```). This issue may be simply solved by installing this library using ```sudo apt-get install libtbb-dev``` to install the library in the system or ```conda install -c conda-forge tbb``` to install the library in the activated Conda environment.
 
+:warning: **Conda & Mamba installation**
+
+If Conda is taking too long to solve the environment, you can take advantgae of [Mamba](https://github.com/mamba-org/mamba), which is a reimplementation of the Conda package manager in C++. It usually solves the environment quickly and helps to debug it if needed.
+
+```
+conda create -n mitgard_env mamba
+conda activate mitgard_env
+mamba install "python >=3.6,<3.9" biopython bowtie2 samtools trinity=2.8.5 spades=3.13.1 hifiasm minimap2 canu
+git clone https://github.com/pedronachtigall/MITGARD.git
+echo "export PATH=$PATH:$(pwd)/MITGARD/bin/" >> ~/.bash_profile
+```
+ - change ```~/.bash_profile``` to ```~/.bashrc``` if needed.
+
 :warning: **Docker installation**
 
 [![Docker build](https://img.shields.io/badge/Docker-build-blue)](https://hub.docker.com/repository/docker/pedronachtigall/mitgard)
