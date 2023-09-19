@@ -36,7 +36,7 @@ Running Single-End
 Checking for rearrangements in the gene order
 =============================================
 
-- Organelle genomes may present some rearrangements in the gene order, which can be checked by using the option ```--rearrangement True```.
+- Organelle genomes may present some rearrangements in the gene order (when compared to the reference), which can be checked by using the option ```--rearrangement True```.
 - Run MITGARD in single-end mode with the rearrangement parameter activated:
   ```
   MITGARD.py -s test -S ../AD5_merge.fastq.gz -R reference.fasta -c 6 -M 8G --rearrangement True
@@ -48,3 +48,15 @@ Checking the contigs file
 
 - If the user wants to check all contigs generated and used to perform the mitogenome assembly, they are available at the file ```test_contigs.fasta```.
 - The contigs file may be used to any downstream analysis.
+
+Running Long-Read mode (MITGARD-LR)
+===================================
+
+- Create the output directory and change to the output directory: `mkdir test_LR && cd test_LR`
+
+- Run MITGARD-LR:
+  ```
+  MITGARD-LR.py -s test -r hifi_reads.fq.gz -R ../reference.fasta -c 6
+  ```
+
+- Check the mitogenome assembly in the file ```test_mitogenome.fasta```.
