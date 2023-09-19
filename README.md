@@ -328,7 +328,7 @@ Usage with PACBIO-HIFI data:
 MITGARD-LR.py -s sample_id -m pacbio_hifi -r pacbio_hifi.fq(.gz) -R reference.fa
 ```
 
-Usabe with PACBIO-CRL data:
+Usage with PACBIO-CRL data:
 ```
 MITGARD-LR.py -s sample_id -m pacbio_clr -r pacbio_clr.fq(.gz) -R reference.fa
 ```
