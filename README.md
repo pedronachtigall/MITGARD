@@ -350,6 +350,8 @@ MITGARD_output/
 └──  filtered_reads.fastq
 ```
 
+ - If using `pacbio_clr` or `nanopore` data, you should consider to polish the final mitogenome (`sample_mitogenome.fasta`) to correct errors resulted from their known high error rates. You can use the mitochondrial reads (`filtered_reads.fastq`) to polish the mitogenome using tools like [Inspector](https://github.com/Maggi-Chen/Inspector), [Racon](https://github.com/isovic/racon), [BlockPolish](https://github.com/huangnengCSU/BlockPolish), or other.
+
 Reference
 =========
 
