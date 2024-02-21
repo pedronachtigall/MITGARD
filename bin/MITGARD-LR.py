@@ -50,6 +50,8 @@ def _ParseBLAST_(blast, estsize):
         count = 1
         if int(alength) <= int(estsize)+2000 and int(alength) >= int(estsize)-2000:
             mitos["matchregion_"+str(count)] = [contig, alength, st, end]
+            if st > end:
+                mitos["matchregion_"+str(count)] = [contig, alength, end, st]
             count += 1
     for k in mitos.keys():
         bestsize = int(bestmatch["mitogenome"][1])
